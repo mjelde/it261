@@ -33,9 +33,16 @@ switch(THIS_PAGE) {
 
     case 'contact.php' :    
        $title = 'Contact';
-       $mainHeadline = 'Mt. Rainier';
-       $center = 'center';
+       $mainHeadline = 'Join Seattle Wine Lovers Mailing List';
+//       $center = 'center';
        $body = 'contact inner';
+       break;
+        
+    case 'thx.php' :    
+       $title = 'Thank you!';
+       $mainHeadline = 'Thank you for joining the mailing list!';
+//       $center = 'center';
+       $body = 'thx inner';
        break;
 
     case 'gallery.php' :    
@@ -85,5 +92,135 @@ return $myReturn;
     $selectedImages = 'images/'.$photos[$i].'.jpg';
 
 // end rand function for picture on the home page
+
+?>
+
+<?php
+
+// the start of the emailable form
+
+$firstName = '';
+$lastName = '';
+$email = '';
+$tel = '';
+$gender = '';
+$wines = '';
+$privacy = '';
+$comments = '';
+
+
+$firstNameErr = '';
+$lastNameErr = '';
+$emailErr = '';
+$telErr = '';
+$genderErr = '';
+$winesErr = '';
+$privacyErr = '';
+$commentsErr = '';
+
+
+if($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+if(empty($_POST['firstName'])) {
+$firstNameErr = 'Please fill out your first name';
+} else {
+$firstName = $_POST['firstName'];
+}
+    
+if(empty($_POST['lastName'])) {
+$lastNameErr = 'Please fill out your last name';
+} else {
+$lastName = $_POST['lastName'];
+}
+    
+if(empty($_POST['email'])) {
+$emailErr = 'Please fill out your email';
+} else {
+$email = $_POST['email'];
+}
+   
+if(empty($_POST['gender'])) {
+$genderErr = 'Please check one!';
+} else {
+$gender = $_POST['gender']; 
+}
+    
+    if($gender == 'male') {
+        $male = 'checked';
+    }    elseif($gender == 'female') {
+            $female = 'checked';
+    }
+    
+    
+if(empty($_POST['wines'])) {
+$winesErr = 'What, no wines?';
+} else {
+$wines = $_POST['wines']; 
+}
+ 
+if(empty($_POST['comments'])) {
+$commentsErr = 'Please include your comments!';
+} else {
+$comments = $_POST['comments']; 
+}
+    
+if(empty($_POST['privacy'])) {
+$privacyErr = 'Please agree to our Privacy Rules!';
+} else {
+$privacy = $_POST['privacy']; 
+}
+    
+
+function myWines() {
+    $myReturn = '';
+  if(!empty($_POST['wines'])) {
+    $myReturn = implode(',', $_POST['wines']);
+
+}  return $myReturn; // end if
+    
+} // end function
+
+    
+if(empty($_POST['tel'])) {  // if empty, type in your number
+$telErr = 'Your phone number please!';
+} elseif(array_key_exists('tel', $_POST)){
+if(!preg_match('/^[0-9]{3}-[0-9]{3}-[0-9]{4}$/', $_POST['tel']))
+{ // if you are not typing the requested format of xxx-xxx-xxxx, display Invalid format
+$telErr = 'Invalid format!';
+} else{
+$tel = $_POST['tel'];
+}
+}
+    
+    
+if(isset($_POST['firstName'],
+        $_POST['lastName'],
+        $_POST['gender'],
+        $_POST['wines'],
+         $_POST['comments'],
+        $_POST['tel'],
+         $_POST['privacy'])) { 
+  $to = 'sharonlamar@gmail.com';
+  $subject = 'Test Email ' .date('m/d/y');
+  $body = ''.$firstName.' has filled out your form '.PHP_EOL.'';
+  $body .= 'Email: '.$email.' '.PHP_EOL.'';
+  $body .= 'Your phone number: '.$tel.' '.PHP_EOL.'';
+  $body .= 'Your Wines: '.myWines().''.PHP_EOL.'';
+  $body .= 'Gender: '.$gender.' '.PHP_EOL.'';
+  $body .= 'Comments: '.$comments.'';
+    
+  $headers = array(
+  'From' => 'no-reply@lca.red',
+  'Reply-to' => ''.$email.'');
+    
+    mail($to, $subject, $body, $headers);
+    header('Location: thx.php');
+    
+    
+} // end isset
+    
+    
+
+} // close if $_SERVER request method
 
 ?>
