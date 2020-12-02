@@ -1,0 +1,33 @@
+/* Styles for registration */
+
+* {
+    padding: 0;
+    margin:0;
+    box-sizing: border-box;
+}
+
+h1 {
+    text-align: center;
+    color: red;
+}
+
+form {
+    max-width: 580px;
+    margin:0 auto 20px auto;
+    
+}
+
+input {
+    display: block;
+    height:30px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+fieldset {
+    padding:10px;
+}
+
+.center {
+    text-align: center;
+}
