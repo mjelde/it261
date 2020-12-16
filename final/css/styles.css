@@ -1,0 +1,215 @@
+/* styles for the Week 6 website */
+
+* {
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+
+.active {
+    color:#f00;
+}
+
+.home {
+    background:beige;
+}
+
+.about {
+    background:lightblue;
+}
+
+.daily {
+    background:lightblue;
+}
+
+.customers {
+    background:lightgreen;
+}
+
+.contact {
+    background:lightblue;
+}
+
+.gallery {
+    background:beige;
+}
+
+.center {
+    text-align:center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+header {
+    margin-bottom:20px;
+    overflow: hidden;
+    padding-bottom:20px;
+}
+
+
+.inner-header {
+    width:940px;
+    margin:20px auto;
+}
+
+#logo {
+    width:150px;
+    float:left;
+}
+
+nav ul {
+    float:right;
+    margin-top:20px; 
+}
+
+nav li {
+    float:left;
+    margin-left:15px;
+    list-style-type:none;
+}
+
+nav a {
+    color:brown;
+    text-decoration: none;
+}
+
+#wrapper {
+    clear:both;
+    width: 940px;
+    margin:0 auto;
+    text-align: center;
+}
+
+main {
+    width:580px;
+    float:left;
+}
+
+aside {
+    width:340px;
+    margin-top:15px; 
+    float:right;
+}
+
+aside img {
+    margin:10px auto 15px auto;
+    display:block;
+
+}
+
+footer {
+    height: 50px;
+    line-height: 50px;
+    border-top:1px dotted tan; 
+    clear:both;
+}
+
+footer li {
+    float:left;
+    margin-right:30px;
+        list-style-type:none;
+}
+
+img {
+    max-width:100%;
+}
+
+blockquote {
+    font-size:1.4em;
+    margin:20px 100px 20px 100px;
+}
+
+.home h1 {
+    font-size:3em;
+    font-weight:200;
+    margin-bottom: 12px;
+}
+
+h1 {
+    font-size:2em;
+    font-weight:200;
+    margin-bottom: 9px;
+}
+
+p {
+    margin-bottom: 20px;    
+}
+
+/* styles for the candidates gallery */
+
+table {
+    border:1px solid black;
+    width:580px;
+    padding:20px;
+    margin-bottom: 20px;
+}
+
+.candidates td:nth-child(1),
+.candidates td:nth-child(2)
+{
+    width:150px;
+}
+
+
+
+/* form css */
+
+
+form {
+    max-width:580px;
+    margin-bottom:20px;
+    text-align: left;
+}
+
+input {
+    margin-bottom: 10px;
+}
+        
+input[type=text],
+input[type=email],
+input[type=tel],
+textarea  {
+    width:100%;    
+    height:30px;
+}
+        
+textarea {
+    height:120px;
+    margin-bottom:20px;
+}
+        
+fieldset {
+    color:black;
+    padding:10px 15px 10px 10px; 
+    background:beige;
+}
+
+label {
+    display:block;
+    margin-bottom:5px;
+        }
+        
+li {
+    list-style-type: none;
+}
+        
+.box {
+    width:600px;
+    margin:20px auto;
+    background:beige;
+    padding:20px;
+    border:1px solid green;
+}
+        
+select {
+    margin-bottom: 10px;
+}
+        
+span {
+    display:block;
+    color:red;
+    font-style:italic;
+    margin-bottom:10px;
+}

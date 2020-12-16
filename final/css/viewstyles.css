@@ -1,0 +1,40 @@
+/* styles for my people page */
+
+* {
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+
+body {
+    background:beige;
+}
+
+#wrapper {
+    width:940px;
+    margin:0 auto;
+}
+
+ul {
+    margin-bottom: 10px;
+    list-style-type: none;
+}
+
+.bold {
+    font-weight:bold;
+    font-size: 1.2em;
+}
+
+main {
+    width:580px;
+    float:left;
+}
+
+aside {
+    width:340px;
+    float:right;
+}
+
+footer {
+    clear:both;
+}
